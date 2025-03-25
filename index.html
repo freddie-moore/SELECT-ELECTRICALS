@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SELECT - Your Trusted Local Electrician</title>
+  <title>SELECT - Your Trusted South-East London Electrician | Residential & Commercial Services</title>
+  <meta name="description" content="SELECT provides professional electrical services in South-East London. Residential wiring, commercial work, repairs, and installations by certified electricians.">
+  <meta name="keywords" content="electrician, South-East London, residential wiring, commercial electrical, electrical repairs, Greenwich, Peckham, Lewisham">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="SELECT - Your Trusted South-East London Electrician">
+  <meta property="og:description" content="Professional electrical services for homes and businesses in South-East London. 5+ years of experience with 5000+ completed projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.selectelectricals.co.uk/">
+  <meta property="og:image" content="https://www.selectelectricals.co.uk/assets/hero.jpg">
+  <link rel="canonical" href="https://www.selectelectricals.co.uk/">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -13,29 +22,115 @@
       scroll-behavior: smooth;
     }
     .hero-section {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/hero.jpg');
-
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/select-hero.jpg');
       background-size: cover;
       background-position: center;
     }
+    .service-card {
+      transform: translateZ(0);
+      will-change: transform;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .service-card:hover {
-      transform: translateY(-5px);
-      transition: transform 0.3s ease;
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
     .testimonial-card {
-      transition: all 0.3s ease;
+      transform: translateZ(0);
+      will-change: transform;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .testimonial-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .testimonial-card:hover {
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    .fade-in {
-      animation: fadeIn 1s ease-in;
+    /* Add smooth transitions for all interactive elements */
+    a, button {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    /* Add subtle hover effect for navigation items */
+    nav a {
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #fbbf24;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    /* Add smooth transition for form inputs */
+    input, textarea {
+      transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Add subtle animation for social media icons */
+    .social-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .social-icon:hover {
+      transform: translateY(-3px);
     }
   </style>
+  <!-- Schema.org markup for Local Business -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "SELECT Electricals",
+      "image": "https://www.selectelectricals.co.uk/assets/hero.jpg",
+      "telephone": "(555) 123-4567",
+      "email": "info@electricianpro.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "South East London",
+        "addressCountry": "UK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.4875",
+        "longitude": "0.0103"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "priceRange": "££",
+      "sameAs": [
+        "https://www.facebook.com/selectelectricals",
+        "https://www.instagram.com/selectelectricals",
+        "https://twitter.com/selectelectricals"
+      ]
+    }
+  </script>
 </head>
 <body class="text-gray-800">
   <!-- Header -->
@@ -43,16 +138,17 @@
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
         <div class="text-yellow-400 mr-2">
-          <i class="fas fa-bolt text-3xl"></i>
+          <i class="fas fa-bolt text-3xl" aria-hidden="true"></i>
         </div>
-        <div class="text-white font-bold text-xl">SELECT</div>
+        <a href="#home" class="text-white font-bold text-xl">SELECT</a>
       </div>
       
       <!-- Desktop Navigation -->
-      <nav class="hidden md:block">
+      <nav class="hidden md:block" aria-label="Main Navigation">
         <ul class="flex space-x-8">
           <li><a href="#home" class="text-white hover:text-yellow-400 transition">Home</a></li>
           <li><a href="#services" class="text-white hover:text-yellow-400 transition">Services</a></li>
+          <li><a href="#about" class="text-white hover:text-yellow-400 transition">About</a></li>
           <li><a href="#testimonials" class="text-white hover:text-yellow-400 transition">Testimonials</a></li>
           <li><a href="#contact" class="text-white hover:text-yellow-400 transition">Contact</a></li>
         </ul>
@@ -60,17 +156,19 @@
       
       <!-- Mobile Navigation Toggle -->
       <div class="md:hidden">
-        <button id="menu-toggle" class="text-white focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
+        <button id="menu-toggle" class="text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
+          <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+          <span class="sr-only">Toggle menu</span>
         </button>
       </div>
     </div>
     
     <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="md:hidden hidden bg-blue-800 w-full">
+    <div id="mobile-menu" class="md:hidden hidden bg-blue-800 w-full" aria-labelledby="menu-toggle">
       <ul class="py-4 px-4 space-y-4">
         <li><a href="#home" class="text-white hover:text-yellow-400 block transition">Home</a></li>
         <li><a href="#services" class="text-white hover:text-yellow-400 block transition">Services</a></li>
+        <li><a href="#about" class="text-white hover:text-yellow-400 block transition">About</a></li>
         <li><a href="#testimonials" class="text-white hover:text-yellow-400 block transition">Testimonials</a></li>
         <li><a href="#contact" class="text-white hover:text-yellow-400 block transition">Contact</a></li>
       </ul>
@@ -80,7 +178,7 @@
   <!-- Hero Section -->
   <section id="home" class="hero-section min-h-screen flex items-center pt-16">
     <div class="container mx-auto px-4 text-center text-white py-24">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Your trusted South-East London electrican</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Your Trusted South-East London Electrician</h1>
       <p class="text-xl md:text-2xl mb-8 fade-in">Reliable electrical services for your home and business</p>
         <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full text-lg transition fade-in">
           Get a free quote
@@ -95,36 +193,36 @@
       
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Service Card 1 -->
-        <div class="service-card bg-white rounded-lg shadow-lg p-6 transition">
+        <div class="service-card bg-white rounded-lg shadow-lg p-6">
           <div class="text-blue-900 text-4xl mb-4">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-home" aria-hidden="true"></i>
           </div>
           <h3 class="text-xl font-bold mb-2">Residential Wiring</h3>
           <p class="text-gray-600">Expert wiring services for your home, including new installations, upgrades, and rewiring of existing systems. We ensure all work meets local safety codes.</p>
         </div>
         
         <!-- Service Card 2 -->
-        <div class="service-card bg-white rounded-lg shadow-lg p-6 transition">
+        <div class="service-card bg-white rounded-lg shadow-lg p-6">
           <div class="text-blue-900 text-4xl mb-4">
-            <i class="fas fa-building"></i>
+            <i class="fas fa-building" aria-hidden="true"></i>
           </div>
           <h3 class="text-xl font-bold mb-2">Commercial Electrical Work</h3>
           <p class="text-gray-600">Comprehensive electrical solutions for offices, retail spaces, and industrial facilities. From lighting installations to power system upgrades.</p>
         </div>
         
         <!-- Service Card 3 -->
-        <div class="service-card bg-white rounded-lg shadow-lg p-6 transition">
+        <div class="service-card bg-white rounded-lg shadow-lg p-6">
           <div class="text-blue-900 text-4xl mb-4">
-            <i class="fas fa-tools"></i>
+            <i class="fas fa-tools" aria-hidden="true"></i>
           </div>
           <h3 class="text-xl font-bold mb-2">Repairs & Troubleshooting</h3>
           <p class="text-gray-600">Quick and reliable repairs for electrical issues. Our expert team can diagnose and fix problems efficiently to restore safety and functionality.</p>
         </div>
         
         <!-- Service Card 4 -->
-        <div class="service-card bg-white rounded-lg shadow-lg p-6 transition">
+        <div class="service-card bg-white rounded-lg shadow-lg p-6">
           <div class="text-blue-900 text-4xl mb-4">
-            <i class="fas fa-plug"></i>
+            <i class="fas fa-plug" aria-hidden="true"></i>
           </div>
           <h3 class="text-xl font-bold mb-2">Installations & Upgrades</h3>
           <p class="text-gray-600">From new outlets and switches to full panel upgrades. We handle all your electrical installation needs with precision and care.</p>
@@ -132,44 +230,45 @@
       </div>
     </div>
   </section>
-      <!-- About Us Section -->
-    <section id="about" class="py-16 bg-gray-100" aria-labelledby="about-heading">
-      <div class="container mx-auto px-4">
-        <h2 id="about-heading" class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-4">About SELECT</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">With over 5 years of experience, we've been providing top-quality electrical services to homeowners and businesses in the Greater London area.</p>
-        
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div class="fade-in">
-            <div class="about-image rounded-lg shadow-xl h-64 md:h-96" 
-              style="background-image: url('assets/ev_charger.jpeg'); background-size: cover; background-position: center;">
-            </div>
+  
+  <!-- About Us Section -->
+  <section id="about" class="py-16 bg-gray-100" aria-labelledby="about-heading">
+    <div class="container mx-auto px-4">
+      <h2 id="about-heading" class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-4">About SELECT</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">With over 5 years of experience, we've been providing top-quality electrical services to homeowners and businesses in the Greater London area.</p>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <div class="about-image rounded-lg shadow-xl h-64 md:h-96" 
+            style="background-image: url('assets/lighting.jpg'); background-size: cover; background-position: center;" aria-label="Electric vehicle charger installation">
           </div>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold text-blue-900 mb-4">Our Story</h3>
+          <p class="text-gray-600 mb-4">With over 5 years of experience, SELECT Electricals provides top-quality electrical solutions across Southeast London. From repairs to full installations, we're here to power your home or business safely and efficiently.</p>
+          <p class="text-gray-600 mb-4">Our fully qualified and certified electricians take pride in delivering exceptional service, ensuring all electrical work meets the highest safety standards. We serve residential and commercial clients throughout Southeast London, including Peckham, Greenwich, Lewisham, and surrounding areas.</p>
+          <p class="text-gray-600 mb-6">All of our electricians are fully licensed, insured, and continuously trained on the latest electrical technologies and safety protocols. We're committed to staying at the forefront of the industry to provide you with the best service possible.</p>
           
-          <div class="fade-in">
-            <h3 class="text-2xl font-bold text-blue-900 mb-4">Our Story</h3>
-            <p class="text-gray-600 mb-4">With over 5 years of experience, SELECT Electricals provides top-quality electrical solutions across Southeast London. From repairs to full installations, we're here to power your home or business safely and efficiently.</p>
-            <p class="text-gray-600 mb-4">Our fully qualified and certified electricians take pride in delivering exceptional service, ensuring all electrical work meets the highest safety standards. We serve residential and commercial clients throughout Southeast London, including Peckham, Greenwich, Lewisham, and surrounding areas.</p>
-            <p class="text-gray-600 mb-6">All of our electricians are fully licensed, insured, and continuously trained on the latest electrical technologies and safety protocols. We're committed to staying at the forefront of the industry to provide you with the best service possible.</p>
-            
-            <div class="flex space-x-4">
-              <div class="text-center">
-                <div class="text-blue-900 font-bold text-4xl mb-2">5+</div>
-                <div class="text-gray-600">Years Experience</div>
-              </div>
-              <div class="text-center">
-                <div class="text-blue-900 font-bold text-4xl mb-2">15</div>
-                <div class="text-gray-600">Expert Electricians</div>
-              </div>
-              <div class="text-center">
-                <div class="text-blue-900 font-bold text-4xl mb-2">5000+</div>
-                <div class="text-gray-600">Projects Completed</div>
-              </div>
+          <div class="flex space-x-4">
+            <div class="text-center">
+              <div class="text-blue-900 font-bold text-4xl mb-2">5+</div>
+              <div class="text-gray-600">Years Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-blue-900 font-bold text-4xl mb-2">15</div>
+              <div class="text-gray-600">Expert Electricians</div>
+            </div>
+            <div class="text-center">
+              <div class="text-blue-900 font-bold text-4xl mb-2">5000+</div>
+              <div class="text-gray-600">Projects Completed</div>
             </div>
           </div>
         </div>
+      </div>
 
       <div class="text-center mt-12">
-        <a href="#contact" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full text-lg transition inline-block fade-in">
+        <a href="#contact" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full text-lg transition inline-block">
           Work with Us
         </a>
       </div>
@@ -184,12 +283,12 @@
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Testimonial 1 -->
         <div class="testimonial-card bg-white rounded-lg shadow p-6">
-          <div class="text-yellow-400 mb-4">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="text-yellow-400 mb-4" aria-label="5 out of 5 stars">
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <p class="text-gray-600 italic mb-4">"SELECT Electricals rewired my entire house in Greenwich. Professional, clean, and completed the job ahead of schedule. Couldn't be happier with their service!"</p>
           <p class="font-bold">Sarah T. - Greenwich</p>
@@ -197,12 +296,12 @@
         
         <!-- Testimonial 2 -->
         <div class="testimonial-card bg-white rounded-lg shadow p-6">
-          <div class="text-yellow-400 mb-4">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="text-yellow-400 mb-4" aria-label="5 out of 5 stars">
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <p class="text-gray-600 italic mb-4">"After having electrical issues in my café for months, SELECT Electricals diagnosed and fixed the problem in one visit. Reliable and knowledgeable team. Highly recommended!"</p>
           <p class="font-bold">Mark R. - Peckham</p>
@@ -210,12 +309,12 @@
         
         <!-- Testimonial 3 -->
         <div class="testimonial-card bg-white rounded-lg shadow p-6">
-          <div class="text-yellow-400 mb-4">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="text-yellow-400 mb-4" aria-label="5 out of 5 stars">
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <p class="text-gray-600 italic mb-4">"I needed new lighting fixtures installed throughout my home in Lewisham. SELECT Electricals provided excellent advice and completed the work to a high standard. Very satisfied!"</p>
           <p class="font-bold">Emma L. - Lewisham</p>
@@ -232,25 +331,25 @@
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Contact Form -->
         <div class="bg-white rounded-lg shadow-lg p-6">
-          <form>
+          <form id="contact-form" aria-label="Contact form">
             <div class="mb-4">
               <label for="name" class="block text-gray-700 mb-2">Name</label>
-              <input type="text" id="name" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+              <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" required>
             </div>
             
             <div class="mb-4">
               <label for="email" class="block text-gray-700 mb-2">Email</label>
-              <input type="email" id="email" placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+              <input type="email" id="email" name="email" placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" required>
             </div>
             
             <div class="mb-4">
               <label for="phone" class="block text-gray-700 mb-2">Phone</label>
-              <input type="tel" id="phone" placeholder="Your Phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+              <input type="tel" id="phone" name="phone" placeholder="Your Phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" required>
             </div>
             
             <div class="mb-4">
               <label for="message" class="block text-gray-700 mb-2">Message</label>
-              <textarea id="message" rows="4" placeholder="How can we help you?" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"></textarea>
+              <textarea id="message" name="message" rows="4" placeholder="How can we help you?" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" required></textarea>
             </div>
             
             <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded transition w-full md:w-auto">Send Message</button>
@@ -267,28 +366,27 @@
           <div class="space-y-4">
             <div class="flex items-start">
               <div class="text-blue-900 text-xl mr-4">
-                <i class="fas fa-phone"></i>
+                <i class="fas fa-phone" aria-hidden="true"></i>
               </div>
               <div>
                 <h4 class="font-bold">Phone</h4>
-                <p class="text-gray-600">(555) 123-4567</p>
+                <p class="text-gray-600"><a href="tel:5551234567">(555) 123-4567</a></p>
               </div>
             </div>
             
             <div class="flex items-start">
               <div class="text-blue-900 text-xl mr-4">
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-envelope" aria-hidden="true"></i>
               </div>
               <div>
                 <h4 class="font-bold">Email</h4>
-                <p class="text-gray-600">info@electricianpro.com</p>
+                <p class="text-gray-600"><a href="mailto:info@electricianpro.com">info@electricianpro.com</a></p>
               </div>
             </div>
           
-            
             <div class="flex items-start">
               <div class="text-blue-900 text-xl mr-4">
-                <i class="fas fa-clock"></i>
+                <i class="fas fa-clock" aria-hidden="true"></i>
               </div>
               <div>
                 <h4 class="font-bold">Hours</h4>
@@ -299,14 +397,14 @@
 
             <div class="flex items-start">
               <div class="text-blue-900 text-xl mr-4">
-                <i class="fas fa-map-marker-alt"></i>
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
               </div>
               <div>
-                <h4 class="font-bold">Address</h4>
+                <h4 class="font-bold">Service Areas</h4>
                 <p class="text-gray-600">South East London & Greater London</p>
+                <p class="text-gray-600">Greenwich, Peckham, Lewisham, and surrounding areas</p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -319,19 +417,33 @@
       <div class="mb-4">
         <div class="flex justify-center items-center mb-4">
           <div class="text-yellow-400 mr-2">
-            <i class="fas fa-bolt text-3xl"></i>
+            <i class="fas fa-bolt text-3xl" aria-hidden="true"></i>
           </div>
           <div class="text-white font-bold text-xl">SELECT</div>
         </div>
-        <p class="text-gray-300 mb-4">South East London's most trusted electrical service contractrors!</p>
+        <p class="text-gray-300 mb-4">South East London's most trusted electrical service contractors!</p>
+        
+        <!-- Social Media Links -->
+        <div class="flex justify-center space-x-4 mb-4">
+          <a href="https://facebook.com/" class="text-gray-300 hover:text-white transition" aria-label="Facebook">
+            <i class="fab fa-facebook-f text-xl" aria-hidden="true"></i>
+          </a>
+          <a href="https://twitter.com/" class="text-gray-300 hover:text-white transition" aria-label="Twitter">
+            <i class="fab fa-twitter text-xl" aria-hidden="true"></i>
+          </a>
+          <a href="https://instagram.com/" class="text-gray-300 hover:text-white transition" aria-label="Instagram">
+            <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
       
       <div class="mb-4">
         <ul class="flex justify-center space-x-6">
-          <li><a href="#" class="text-gray-300 hover:text-white transition">Home</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition">Services</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition">Testimonials</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition">Contact</a></li>
+          <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+          <li><a href="#services" class="text-gray-300 hover:text-white transition">Services</a></li>
+          <li><a href="#about" class="text-gray-300 hover:text-white transition">About</a></li>
+          <li><a href="#testimonials" class="text-gray-300 hover:text-white transition">Testimonials</a></li>
+          <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
         </ul>
       </div>
       
@@ -350,12 +462,14 @@
     document.getElementById('menu-toggle').addEventListener('click', function() {
       const mobileMenu = document.getElementById('mobile-menu');
       mobileMenu.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
     });
     
     // Close mobile menu when clicking a link
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', function() {
         document.getElementById('mobile-menu').classList.add('hidden');
+        document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
       });
     });
     
@@ -373,22 +487,34 @@
       });
     });
     
-    // Fade-in animations on scroll
+    // Improved fade-in animations on scroll with Intersection Observer
     const fadeElements = document.querySelectorAll('.service-card, .testimonial-card');
     
-    const fadeInOnScroll = function() {
-      fadeElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-          element.classList.add('fade-in');
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Add staggered delay based on element position
+          const delay = Array.from(fadeElements).indexOf(entry.target) * 150;
+          entry.target.style.transitionDelay = `${delay}ms`;
         }
       });
-    };
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px'
+    });
     
-    window.addEventListener('scroll', fadeInOnScroll);
-    fadeInOnScroll(); // Initial check
+    fadeElements.forEach(element => {
+      fadeInObserver.observe(element);
+    });
+    
+    // Form validation and submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Here you would typically add form submission code
+      alert('Thank you for your message. We will get back to you shortly!');
+      this.reset();
+    });
   </script>
 </body>
 </html>

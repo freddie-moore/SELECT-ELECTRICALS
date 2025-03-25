@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Website Design for Tradespeople | Built for Trades</title>
+    <meta name="description" content="Boost your trade business with custom, SEO-optimized websites designed for tradespeople.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {--primary: #003366; --secondary: #fdfdfd; --accent: #FF6600; --text: #333; --light: #FFF;}
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text); background: var(--secondary);}
+        h1, h2, h3 {font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 1rem;}
+        img {max-width: 100%; height: auto;}
+        a {text-decoration: none; color: var(--primary); transition: all 0.3s;}
+        .container {width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px;}
+        .btn {display: inline-block; padding: 10px 20px; background: var(--accent); color: var(--light); border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s;}
+        .btn:hover {background: #e65c00; transform: translateY(-2px);}
+        
+        /* Header */
+        header {background: var(--primary); padding: 1rem 0; position: sticky; top: 0; z-index: 100;}
+        .header-flex {display: flex; justify-content: space-between; align-items: center;}
+        .logo {display: flex; align-items: center; color: var(--light);}
+        .logo svg {margin-right: 10px;}
+        .logo h1 {font-size: 1.5rem; margin: 0;}
+        nav ul {display: flex; list-style: none;}
+        nav li {margin-left: 1.5rem;}
+        nav a {color: var(--light); font-weight: 600;}
+        nav a:hover {color: var(--accent);}
+        #menu-toggle {display: none;}
+        
+        /* Hero */
+        .hero {background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('./assets/hero.jpg'); background-size: cover; color: var(--light); padding: 5rem 0; text-align: center;}
+        .hero h2 {font-size: 2.5rem;}
+        .hero p {font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;}
+        
+        /* Sections */
+        section {padding: 4rem 0;}
+        .section-title {text-align: center; color: var(--primary); margin-bottom: 2rem;}
+        
+        /* Features */
+        /* Feature Cards - Updated */
+        .features {display: flex; flex-wrap: wrap; justify-content: space-between;}
+        .feature {
+            flex: 0 0 23%; 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            background-color: white; 
+            border-radius: 8px; 
+            padding: 2rem 1.5rem; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .icon {
+            font-size: 2rem; 
+            color: var(--primary); 
+            margin-bottom: 1.5rem;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            background-color: rgba(0,51,102,0.1);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .feature h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Spotlight */
+        .spotlight {display: flex; align-items: center;}
+        .spotlight-img {flex: 0 0 45%;}
+        .spotlight-content {flex: 0 0 50%; margin-left: 5%;}
+        .spotlight-content blockquote {font-style: italic; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent);}
+        .metrics {display: flex; justify-content: space-between; margin-top: 1.5rem;}
+        .metric {flex: 0 0 48%; text-align: center; padding: 1rem; background: #f8f8f8; border-radius: 4px;}
+        .metric h3 {color: var(--accent); font-size: 1.8rem; margin-bottom: 0.25rem;}
+        
+        /* Services */
+        .services-grid {display: flex; flex-wrap: wrap; justify-content: space-between;}
+        .service-card {flex: 0 0 31%; background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1);}
+        .service-card:hover {transform: translateY(-5px);}
+        .service-card .btn-sm {padding: 8px 16px; font-size: 0.9rem;}
+        
+        /* Footer */
+        footer {background: var(--primary); color: var(--light); padding: 3rem 0 1rem;}
+        .footer-grid {display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 2rem;}
+        .footer-col {flex: 0 0 30%;}
+        .footer-col h3 {color: var(--light); font-size: 1.2rem;}
+        .footer-col ul {list-style: none;}
+        .footer-col li {margin-bottom: 0.5rem;}
+        .footer-col a {color: var(--light);}
+        .footer-col a:hover {color: var(--accent);}
+        .social {display: flex; margin-top: 1rem;}
+        .social a {margin-right: 1rem; color: var(--light); font-size: 1.2rem;}
+        .copyright {text-align: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;}
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .feature, .service-card {flex: 0 0 48%;}
+        }
+        @media (max-width: 768px) {
+            #menu-toggle {display: block; background: none; border: none; color: var(--light); font-size: 1.5rem; cursor: pointer;}
+            nav ul {display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary); padding: 1rem 0;}
+            nav ul.show {display: flex;}
+            nav li {margin: 0.5rem 2rem;}
+            .spotlight {flex-direction: column;}
+            .spotlight-img, .spotlight-content {flex: 0 0 100%; margin-left: 0; margin-bottom: 2rem;}
+            .footer-col {flex: 0 0 100%; margin-bottom: 2rem;}
+        }
+        @media (max-width: 576px) {
+            .feature, .service-card, .metric {flex: 0 0 100%;}
+            .metrics {flex-direction: column;}
+            .metric {margin-bottom: 1rem;}
+            .hero h2 {font-size: 2rem;}
+        }
+
+        /* About Us Section */
+        .about-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 1.5rem 0;
+        }
+        .highlight {
+            flex: 0 0 30%;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .highlight i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .highlight h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 2rem;
+        }
+        .trust-badges i {
+            font-size: 2rem;
+            color: var(--primary);
+            background-color: rgba(255,255,255,0.8);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .trust-badges i:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 4rem 0;
+        }
+        .contact-section .section-title {
+            color: var(--light);
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            flex: 0 0 35%;
+            padding-right: 2rem;
+        }
+        .contact-info h3 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+        .contact-info i {
+            width: 25px;
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        .contact-form {
+            flex: 0 0 60%;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .submit-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        .submit-btn:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+        }
+        .required-field::after {
+            content: "*";
+            color: var(--accent);
+            margin-left: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info, .contact-form {
+                flex: 0 0 100%;
+            }
+            .contact-info {
+                margin-bottom: 2rem;
+                padding-right: 0;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-flex">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" rx="8" fill="#E5E5E5"/>
+                        <path d="M8 8H42V30H8V8Z" fill="#003366"/>
+                        <path d="M12 12H38V26H12V12Z" fill="#FFFFFF"/>
+                        <path d="M22 34H28V42H22V34Z" fill="#003366"/>
+                        <path d="M15 30L35 30L25 20L15 30Z" fill="#FF6600"/>
+                        <path d="M20 34H30L25 30L20 34Z" fill="#003366"/>
+                    </svg>
+                    <h1>Built for Trades</h1>
+                </div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <nav>
+                    <ul id="menu">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#contact" class="btn">Get a Free Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h2>Get a Website that Works as Hard as You Do</h2>
+            <p>We design, create, and host websites that attract more clients and showcase your skills.</p>
+            <a href="#contact" class="btn">Enquire Now</a>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-toolbox"></i></div>
+                    <h3>Trade Industry Experts</h3>
+                    <p>We understand your business and your clients' needs.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3>Custom Designs</h3>
+                    <p>Tailored websites that reflect your brand and services.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                    <h3>SEO Optimization</h3>
+                    <p>Get found by more potential clients.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile-Friendly</h3>
+                    <p>Your website will look great on any device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" style="background-color:#f8f8f8; padding: 6rem 0 0 0;">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="spotlight" style="gap: 3rem;">
+                <div class="spotlight-content">
+                    <h3>Your Digital Success Partner</h3>
+                    <p>At Built for Trades, we're passionate about helping tradespeople succeed online. With over a decade of experience working exclusively with contractors, plumbers, electricians, and other trade professionals, we understand the unique challenges and opportunities in your industry.</p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-tools"></i>
+                            <h4>Trade-Focused Approach</h4>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile-First Design</h4>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-search"></i>
+                            <h4>SEO Optimization</h4>
+                        </div>
+                    </div>
+                    <p>Our team combines technical expertise with deep industry knowledge to create websites that not only look professional but also drive real business results. We focus on what matters most: converting visitors into paying customers.</p>
+                </div>
+                <div class="spotlight-img" style="flex: 0 0 40%;">
+                    <img src='./assets/website_designer.jpg' alt="Built for Trades team at work" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Spotlight -->
+    <section id="portfolio" style="background-color:#f8f8f8; padding: 6rem;">
+        <div class="container">
+            <h2 class="section-title">Success Story</h2>
+            <div class="spotlight">
+                <div class="spotlight-img">
+                    <a href="file:///C:/Users/fredd/Documents/SELECT-ELECTRICALS/index.html">
+                        <img src='./assets/select_website.png' alt="Plumber website design screenshot">
+                    </a>
+                </div>
+                <div class="spotlight-content">
+                    <h3>SELECT Electricals</h3>
+                    <p>We created a custom website for SELECT Electricals that prominently features their 24/7 emergency electrical services, detailed service offerings, and authentic customer testimonials. The mobile-optimized design makes it easy for customers to request urgent help, while the strategic placement of customer reviews helps build credibility. Their new website effectively communicates their expertise in both residential and commercial electrical work.</p>
+                    <blockquote>"Built for Trades were fantastic, the turnaround times were very quick and there was excellent communication every step of the way. I would highly recommend them to anyone looking for a new website." - Felix Moore</blockquote>
+                     <!-- <div class="metrics">
+                        <div class="metric">
+                            <h3>50%</h3>
+                            <p>Increase in online leads</p>
+                        </div>
+                        <div class="metric">
+                            <h3>#1</h3>
+                            <p>Rank for local searches</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="padding: 6rem;">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">From initial consultation to ongoing maintenance, we handle every aspect of your website. Our streamlined process ensures a hassle-free experience while we transform your vision into a powerful online presence.</p>
+            <div class="services-grid">
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h3>Custom Designs</h3>
+                    <p>Trade-specific websites tailored to your business. We focus on designs that convert visitors to customers.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <h3>Expert Development</h3>
+                    <p>Built with modern technologies for performance, fast loading times and intuitive user experience.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-server"></i></div>
+                    <h3>Reliable Hosting</h3>
+                    <p>Fast, secure hosting with ongoing support. We keep your website running smoothly 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Ready to grow your trade business online? Get in touch today for a free consultation and quote.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We're here to answer any questions you have about our services. Reach out to us and we'll respond as soon as we can.</p>
+                    <p><i class="fas fa-phone"></i>+44 7548 036 818</p>
+                    <p><i class="fas fa-envelope"></i> info@builtfortrades.com</p>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required-field" for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="required-field" for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="required-field" for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i>+44 7548 036 818</p>
+                    <p><i class="fas fa-envelope"></i> info@builtfortrades.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Built for Trades. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
